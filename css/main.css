@@ -15,10 +15,13 @@ body{
 header h1{
 	font-size: 4rem;
 	font-weight: 100;
+	margin-bottom: 1.5rem;
+}
+header p{
+	margin-bottom: 3rem;
 }
 a{
 	text-decoration: none;
-
 }
 .verticalLine:before{
   content: "";
@@ -27,27 +30,29 @@ a{
   border-left: 0.13em solid #90A4AE;
   border-right: 0.13em solid #90A4AE;
   height: 100%;
-  width: 16%;
+  width: 0.8rem;
   margin-left: 42%;
   box-sizing: border-box;
 }
 .verticalLine {
   position: relative;
   width: 10%;
+  flex-shrink: 0;
 }
 ul.tech{
 	list-style-type: none;
 	padding:0;
-	margin:0;
+	margin:0 0 0.6rem 0;
 }
 ul.tech li{
 	display: inline-block;
-	background-color: grey;
-	border: 2px solid grey;
-    border-radius: 5px;
+	background-color: #a9a9a9;
+	border: 2px solid #a9a9a9;
+    border-radius: 6px;
 	margin-right: 5px;
 	margin-top: 5px;
 	color: white;
+	padding: 0 1px 0 1px;
 }
 .tr {
 	display: flex;
@@ -55,11 +60,16 @@ ul.tech li{
 
 h3{
 	margin-top: 0;
+	margin-bottom: 0.5rem;
 }
 .year{
 	width: 10%;
 	text-align: center;
 	color: #607D8B;
+}
+.description{
+	margin-top: 0.5rem;
+	margin-bottom: 0.2rem;
 }
 
 /* Media Queries */
@@ -76,5 +86,6 @@ h3{
 	.side, .empty{
 		width:90%;
 	}
+	
 	
 }
