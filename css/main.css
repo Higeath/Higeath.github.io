@@ -63,15 +63,30 @@ a {
 }
 
 h3 {
-	margin-top: 0;
-	margin-bottom: .5rem;
-	color: #000;
+	display: inline-block;
+	position: relative;
+	color: black;
+	margin: 0;
+}
+h3:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 2.5px;
+	width: 0px;
+	background: transparent;
+	transition: width .35s ease, background-color .35s ease;
+}
+a:hover h3:after {
+	width: 100%;
+	background: #B35300;
 }
 
 .description {
 	margin-top: .5rem;
 	margin-bottom: .2rem;
-	color: #000;
+	text-align: justify;
+	color: black;
 }
 
 ul.tech {
