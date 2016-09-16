@@ -1,91 +1,108 @@
-body{
+body {
 	margin: 0 auto;
 	max-width: 1200px;
-	font-family: Helvetica, Arial;
+	font-family: Helvetica,Arial;
+	background-color: #F7F7F7;
 }
+
 #wrapper {
 	position: relative;
 	z-index: 0;
 	margin: 1% 4% 2%;
 	padding: 1rem;
 }
-.side, .empty{
-	width: 45%;
-}
-header h1{
+
+header h1 {
 	font-size: 4rem;
 	font-weight: 100;
 	margin-bottom: 1.5rem;
 }
-header p{
+
+header p {
 	margin-bottom: 3rem;
 }
-a{
-	text-decoration: none;
-}
-.verticalLine:before{
-  content: "";
-  display: block;
-  position: absolute;
-  border-left: 0.13em solid #90A4AE;
-  border-right: 0.13em solid #90A4AE;
-  height: 100%;
-  width: 0.8rem;
-  margin-left: 42%;
-  box-sizing: border-box;
-}
-.verticalLine {
-  position: relative;
-  width: 10%;
-  flex-shrink: 0;
-}
-ul.tech{
-	list-style-type: none;
-	padding:0;
-	margin:0 0 0.6rem 0;
-}
-ul.tech li{
-	display: inline-block;
-	background-color: #a9a9a9;
-	border: 2px solid #a9a9a9;
-    border-radius: 6px;
-	margin-right: 5px;
-	margin-top: 5px;
-	color: white;
-	padding: 0 1px 0 1px;
-}
-.tr {
+
+.flex {
 	display: flex;
 }
 
-h3{
-	margin-top: 0;
-	margin-bottom: 0.5rem;
+.flex:nth-of-type(even) {
+	flex-direction: row-reverse;
 }
-.year{
-	width: 10%;
+
+.side {
+	width: 45%;
+}
+
+.verticalLine:before {
+	flex: 1;
+	content: "";
+	border-left: 0.13em solid #B9D7D9;
+	border-right: 0.13em solid #B9D7D9;
+	width: 0.8rem;
+	box-sizing: border-box;
+}
+
+.verticalLine {
+	display: flex;                     
+    flex-direction: column;
+    align-items: center;               
+    flex: 0 0 10%; 
+	min-width:50px;
+}
+
+.year {
+	display: block;
+	width: 100%;
 	text-align: center;
-	color: #607D8B;
+	color: #B35300;
 }
-.description{
-	margin-top: 0.5rem;
-	margin-bottom: 0.2rem;
+
+a {
+	text-decoration: none;
+}
+
+h3 {
+	margin-top: 0;
+	margin-bottom: .5rem;
+	color: #000;
+}
+
+.description {
+	margin-top: .5rem;
+	margin-bottom: .2rem;
+	color: #000;
+}
+
+ul.tech {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 .6rem;
+}
+
+ul.tech li {
+	display: inline-block;
+	background-color: #a9a9a9;
+	border: 2px solid #a9a9a9;
+	border-radius: 6px;
+	margin-right: 5px;
+	margin-top: 5px;
+	color: #fff;
+	padding: 0 1px;
 }
 
 /* Media Queries */
 @media only screen and (max-width: 768px) {
-    header h1{
+	header h1 {
 		font-size: 3rem;
 	}
-	.tr > div.side {
-		display: none;
+
+	.flex:nth-of-type(even) {
+		flex-direction: row;
 	}
-	.rev{
-		flex-direction: row-reverse;
+
+	.side {
+		width: 90%;
 	}
-	.side, .empty{
-		width:90%;
-	}
-	
-	
+
 }
