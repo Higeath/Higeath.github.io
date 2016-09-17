@@ -1,0 +1,84 @@
+body {
+	margin: 0 auto;
+	max-width: 1200px;
+	font-family: Helvetica,Arial;
+	background-color: #F7F7F7;
+}
+
+#wrapper {
+	position: relative;
+	z-index: 0;
+	margin: 1% 4% 2%;
+	padding: 1rem;
+}
+a{
+	text-decoration: none;
+}
+header h1{
+	font-size: 4rem;
+	font-weight: 100;
+	margin-bottom: 10px;
+}
+
+ul.tech {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 .6rem;
+	float: right;
+	font-size: 2rem;
+}
+
+	ul.tech li {
+		display: inline-block;
+		background-color: #a9a9a9;
+		border: 2px solid #a9a9a9;
+		border-radius: 6px;
+		margin-right: 5px;
+		margin-top: 5px;
+		color: #fff;
+		padding: 0 1px;
+	}
+
+.github{
+	width: 9.5rem;
+	margin: 0 auto;
+}
+	.github img{
+		width: 27%;
+		max-width: 50px;
+		height: auto;
+	}
+	.github img:hover{
+		fill: red;
+	}
+	.github p{
+		color: black;
+		font-weight: bold;
+	}
+	
+.images{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+	.images div{
+		height: 16rem;
+		width: 16rem;
+		overflow: hidden;
+		display: flex;
+		margin: 1rem;
+	}
+	.images img{
+		height: 100%;
+	}
+	
+.octicon-mark-github{
+	margin-right: 10px;
+}
+.github a:hover p{
+	color:#4078c0;
+}
+.clr{
+	clear: both;
+}
