@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="List of Kacper Turon's projects." name="description">
+	<title>Kacper Turon | Projects</title>
+	<link href="../../css/project.css" rel="stylesheet">
+	<link href="css/TorpedoGame.css" rel="stylesheet">
+	<link href="../../css/octicons/octicons.min.css" rel="stylesheet">
+	<link href="../../css/magnific-popup.css" rel="stylesheet">
+
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<h1>Torpedo Game</h1>
+			<ul class="tech">
+				<li>Assembler</li>
+				<li>ATmega8535</li>
+			</ul>
+			
+			<div class="clr github">
+				<a href="https://github.com/Higeath/TorpedoGame" target="_blank">
+					<p><span class="mega-octicon octicon-mark-github"></span>REPOSITORY</p>
+				</a>
+			</div>
+		</header>
+		<div class="images">
+			<div>
+				<img src="images/FSM.png"  href="images/FSM.png" title="FSM diagram">
+			</div>
+			<div>
+				<img src="images/TorpedoGameSetUp.png" href="images/TorpedoGameSetUp.png" title="Fully assembled board">
+			</div>
+			<div>
+				<img src="images/FlowChart.png" href="images/FlowChart.png" title="Flowchart">
+			</div>
+		</div>
+		<div>
+			<h3>Specification:</h3>
+			<p>User input is taken from switches attached to the development board, each button correlates to each diode on the lightbox. </p>
+			<ul>
+				<li>Game speeds up each time a ship is shot down and a sound is played.</li>
+				<li>3 kinds of ships worth different amount of points</li>
+				<li style="list-style:none;">
+					<ul>
+						<li>Aircraft Carrier - 3 diodes long - 4 points</li> 
+						<li>Battleship - 2 diodes long - 8 points</li>
+						<li>Destroyer - 1 diode long - 12 points</li>
+					</ul>
+				</li>
+				<li>Ships spawn from random direction and each time a random ship spawns</li>
+				<li>Score is displayed in hexadecimal on 7 segment display</li>
+				<li>Only one torpedo can be launched at a time with a small delay</li>
+			</ul>
+			<h3>Main game loop:</h3>
+			<div class="code">
+				<code>
+;========================================GAME LOOP========================================;
+	gameLoop:	;ldi r18, $01 //Use to force a certain ship for testing
+				rcall random	//generate random number for ship
+				rcall ship		//get random ship from generated number
+				;ldi r19, $02 //Use to force which direction ship should move for testing
+				rcall random  //generate random number for direction
+				rcall direction	//get random direction from generated number
+				clr r7 //Reset user missed torpedo value								
+				rcall spawnShip //initialize ship on switch light box LEDs
+				cpi r19,$01
+				breq moveLeft 
+				cpi r19,$02
+				breq moveRight
+
+		moveLeft:   lsl leds //Rotate left leds register
+					out PORTC,leds       //Display leds to port C 
+					rcall delayCheck
+					cp leds,r1			//If register is empty the ship escaped from the player hence exit the loop and spawn a new ship
+					breq gameLoop
+					rjmp moveLeft
+
+		moveRight:  lsr leds //Rotate right leds register
+					out PORTC,leds       //Display leds to port C 
+					rcall delayCheck
+					cp leds,r1			//If register is empty the ship escaped from the player hence exit the loop and spawn a new ship
+					breq gameLoop
+					rjmp moveRight
+
+		table:   .DB $3F,$06,$5B,$4F,$66,$6D,$7D,$07, $7F, $6F, $77, $7C, $39, $5E, $79, $71 //Table consisting of numbers in hexadecimal 0-F on 7 Segment display
+
+;========================================GAME LOOP========================================;
+				</code>
+			</div>
+		</div>
+	</div>
+		
+	<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+	<script src="../../js/jquery.min.js"></script>
+
+	<!-- Magnific Popup core JS file -->
+	<script src="../../js/jquery.magnific-popup.min.js"></script>
+	<script>
+	$(document).ready(function() {
+	  $('img').magnificPopup({type:'image'});
+	});
+	</script>
+</body>
+</html>

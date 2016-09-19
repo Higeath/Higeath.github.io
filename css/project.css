@@ -36,7 +36,7 @@ ul.tech {
 		margin-right: 5px;
 		margin-top: 5px;
 		color: #fff;
-		padding: 0 1px;
+		padding: 0 4px;
 	}
 
 .github{
@@ -71,6 +71,7 @@ ul.tech {
 	}
 	.images img{
 		height: 100%;
+		cursor: pointer;
 	}
 	
 .octicon-mark-github{
@@ -78,6 +79,12 @@ ul.tech {
 }
 .github a:hover p{
 	color:#4078c0;
+}
+.code{
+	background:#F8F8FF;
+	border:black dashed 1px;
+	padding:6px;
+		white-space: pre-wrap;
 }
 .clr{
 	clear: both;
