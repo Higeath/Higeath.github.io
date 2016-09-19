@@ -1,0 +1,6 @@
+	.images div{
+		/*height: 16rem;*/
+		width: auto;
+		margin: 0.5rem;
+		box-shadow: 4px 4px 10px #aaa;
+	}
