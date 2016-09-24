@@ -13,6 +13,9 @@ body {
 a{
 	text-decoration: none;
 }
+p{
+	text-align: justify;
+}
 header h1{
 	font-size: 4rem;
 	font-weight: 100;
@@ -54,7 +57,14 @@ ul.tech {
 		color: black;
 		font-weight: bold;
 	}
+	.github a:hover p{
+		color:#4078c0;
+	}	
 	
+.octicon-mark-github{
+	margin-right: 10px;
+}
+
 .images{
 	display: flex;
 	justify-content: center;
@@ -62,29 +72,27 @@ ul.tech {
 }
 
 	.images div{
-		height: 16rem;
-		width: 16rem;
+		height: 15rem;
+		width: auto;
 		overflow: hidden;
 		display: flex;
 		margin: 1rem;
+		box-shadow: 4px 4px 10px #aaa;
 	}
 	.images img{
 		height: 100%;
 		cursor: pointer;
 	}
 	
-.octicon-mark-github{
-	margin-right: 10px;
-}
-.github a:hover p{
-	color:#4078c0;
-}
+
 .code{
 	background:#F8F8FF;
 	border:black dashed 1px;
 	padding:6px;
-		white-space: pre-wrap;
+	white-space: pre-wrap;
+	word-break:break-all;
 }
 .clr{
 	clear: both;
 }
+

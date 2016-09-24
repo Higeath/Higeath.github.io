@@ -1,6 +1,28 @@
-	.images div{
-		/*height: 16rem;*/
-		width: auto;
-		margin: 0.5rem;
-		box-shadow: 4px 4px 10px #aaa;
+	img{
+		cursor: pointer;
 	}
+	#concept p{
+		float: left;
+	}
+	#concept img{
+		float: right;
+		margin-left: 0.6rem;
+		box-shadow: 4px 4px 10px #aaa;
+
+	}
+	
+	/* Media Queries */
+@media only screen and (max-width: 640px) {
+
+	.images div{
+		height: auto;
+		width: auto;
+		align-items: center;
+	}
+	.images img{
+		max-width:100%;
+		height: auto;
+	}
+	
+
+}

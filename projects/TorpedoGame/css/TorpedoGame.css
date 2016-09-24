@@ -1,6 +1,15 @@
+/* Media Queries */
+@media only screen and (max-width: 450px) {
+
 	.images div{
-		height: 16rem;
+		height: auto;
 		width: auto;
-		margin: 0.5rem;
-		box-shadow: 4px 4px 10px #aaa;
+		align-items: center;
 	}
+	.images img{
+		max-width:100%;
+		height: auto;
+	}
+	
+
+}

@@ -2,28 +2,70 @@
 	position:fixed;
 	max-width: 1200px;
 	width: 100%;
+	z-index: 0;
+}
+
+#navigation svg {
+	float:right;
+}
+#navigation svg polyline{
+	fill:#F7F7F7;
+	stroke:#B9D7D9;
+	stroke-width:2;
 }
 
 #navigation ul{
+	position: absolute;
+	top: 3px;
+	right: 0.8rem;
 	list-style-type: none;
 	margin:0;
 	padding:0;
-	float:right;	
+	background-color: #F7F7F7;
+	box-sizing: border-box;
 }
+
 #navigation li{
 	float: left;
 }
+
 #navigation a{
 	display: block;
 	padding: 10px;
-	margin-left: 0.5rem;
+	margin-left: 0.8rem;
 	font-size: 1.3rem;
 	color: black;
+	transition: all 0.2s;
 }
 #navigation a:hover{
-	color: red;
+	color: #B35300!important;
 }
+
 .active {
-    background-color: #4CAF50;
-    color: white;
+    color: #a9a9a9!important;
+}
+
+
+@media only screen and (max-width: 768px) {
+	#navigation{
+		position: static;
+		text-align: center;
+	}
+	#navigation svg{
+		display: none;
+	}
+	#navigation ul{
+		position: static;
+		border: 2px solid #B9D7D9;
+		width: 100%;
+	}
+	#navigation li{
+		float: none;
+	}
+	#navigation li, a{
+		display: inline-block!important;
+	}
+	#navigation a{
+		font-size: 1.7rem;
+	}
 }

@@ -6,6 +6,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta content="List of Kacper Turon's projects." name="description">
 	<title>Kacper Turon | WiFi Guide</title>
+	<link href="../../css/navigation.css" rel="stylesheet">
 	<link href="../../css/project.css" rel="stylesheet">
 	<link href="css/WiFiGuide.css" rel="stylesheet">
 	<link href="../../css/octicons/octicons.min.css" rel="stylesheet">
@@ -13,6 +14,17 @@
 
 </head>
 <body>
+	<div id="navigation">
+		<svg height="50" width="500">
+		  <polyline points="0,0 500,0 500,50 70,50 0,0"/>
+		</svg>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="../../index.html">Projects</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</div>
 	<div id="wrapper">
 		<header>
 			<h1>WiFi Guide</h1>
@@ -22,22 +34,97 @@
 			</ul>
 			
 			<div class="clr github">
-				<a href="#">
+				<a href="https://github.com/Higeath/WiFiGuide">
 					<p><span class="mega-octicon octicon-mark-github"></span>REPOSITORY</p>
 				</a>
 			</div>
 		</header>
 		<div class="images">
 			<div>
-				<img src="images/test.jpg">
-			</div>
-			<div>
 				<img src="images/bot.png" href="images/bot.png" title="Fully functional bot">
 			</div>
 			<div>
-				<img src="images/test.jpg">
+				<img src="images/bot&receiver.png" href="images/bot&receiver.png" title="Bot with receiver">
+			</div>
+			<div>
+				<img src="images/flowchart.png" href="images/flowchart.png" title="Flowchart">
 			</div>
 		</div>
+		<div id="concept">
+			<h3>Concept</h3>
+			<p><img src="images/WiFispread example.png" href="images/WiFispread example.png" title="Flowchart" >Then the initial searching sequence occurs which checks signal 8 times after each robot turn 45 degrees. After which it compares those 8 signal measurements and goes towards the lowest value (the best signal) for 4 seconds. After that initial scan and movement it goes back to more primitive algorithm which is compare previous and current signal and if signal is getting worse turn right if not go straight.
+			
+			</p>
+		</div>
+		<div class="clr">
+			<h3>Components:</h3>
+			<ul>
+				<li>Arduino Uno with breadboard</li>
+				<li>2x Parallax continuous servo and chassis</li>
+				<li>RGB LED</li>
+				<li>1x Green, 1x Yellow LED</li>
+				<li>2x 5 AA battery holders</li>
+			</ul>
+		</div>
+		<div>
+			<h3>Development</h3>
+			<p>The robot program was developed incrementally. First most core parts such as control of servos and getting RSSI values since without them I would not be able to pursue further this project. After that controls of LEDs and RGB LED and the logic behind finding the source of signal. 
+Parts the project was divided into:</p>
+			<ul>
+				<li>Control of servos</li>
+				<li>Control of LEDs / RGB LED</li>
+				<li>Getting RSSI from WiFi shield</li>
+				<li>Creating scanning routine and getting to the source of signal</li>
+			</ul>
+		</div>
+		<div>
+			<h3>The main logic of the bot:</h3>
+			<div class="code">
+			<code>
+void loop() {
+  if(ssidFound){
+    if(!sourceFound){
+      stayStill();
+      delay(500);
+      updateRSSI();
+       if(rssi>-36&&prevRssi>-45){//Source found
+        stayStill();
+        detachServos();
+        sourceFound = true;
+        digitalWrite(greenLed, HIGH);
+        Serial.print("Source found.");
+        Serial.println();
+      }
+      if(prevRssi>rssi){
+        turnRight();
+        goStraight();
+        delay(2000);
+      }else{
+        goStraight(); 
+        delay(2000);
+      }
+    }
+  }else if(!ssidFound&&!sourceFound){//Signal lost check it again
+    ssidStatus();
+	if(ssidFound){//If signal was found again rescan the area
+		scan();
+		goStraight();
+		delay(6000);
+		stayStill();
+		updateRSSI();
+	}else{
+     stayStill();
+	}
+  }
+  milis = millis();
+  if(milis-prevMilis>60000){//Check WiFi every minute
+	ssidStatus();
+	prevMilis = millis();
+  }
+}
+		</code>
+		</div>
+	</div>
 	</div>
 
 <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->

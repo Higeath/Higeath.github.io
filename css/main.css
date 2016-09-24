@@ -63,7 +63,6 @@ a {
 
 h3 {
 	display: inline-block;
-	position: relative;
 	color: black;
 	margin: 0;
 }
@@ -117,6 +116,7 @@ ul.tech li {
 
 	.side {
 		width: 90%;
+		margin-bottom: 1rem;
 	}
 
 }
