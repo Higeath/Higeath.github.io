@@ -6,6 +6,7 @@
 	}
 	#concept img{
 		float: right;
+		width: 8rem;
 		margin-left: 0.6rem;
 		box-shadow: 4px 4px 10px #aaa;
 

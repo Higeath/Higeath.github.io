@@ -15,16 +15,16 @@
 </head>
 <body>
 	<div id="navigation">
-		<svg height="50" width="500">
-		  <polyline points="0,0 500,0 500,50 70,50 0,0"/>
+		<svg height="50" width="400">
+		  <polyline points="0,0 400,0 400,50 70,50 0,0"/>
 		</svg>
 		<ul>
-			<li><a href="#">Home</a></li>
 			<li><a href="../../index.html">Projects</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contact</a></li>
+			<li><a href="../../about.html">About</a></li>
+			<li><a href="../../contact.html">Contact</a></li>
 		</ul>
 	</div>
+	
 	<div id="wrapper">
 		<header>
 			<h1>WiFi Guide</h1>
@@ -52,7 +52,8 @@
 		</div>
 		<div id="concept">
 			<h3>Concept</h3>
-			<p><img src="images/WiFispread example.png" href="images/WiFispread example.png" title="Flowchart" >Then the initial searching sequence occurs which checks signal 8 times after each robot turn 45 degrees. After which it compares those 8 signal measurements and goes towards the lowest value (the best signal) for 4 seconds. After that initial scan and movement it goes back to more primitive algorithm which is compare previous and current signal and if signal is getting worse turn right if not go straight.
+			<p><img src="images/WiFispread example.png" href="images/WiFispread example.png" title="WiFi wave spread" >
+At the beginning initial sequence is launched which checks signal 16 times, twice every 45 degrees to determine where to start the search. After that initial scan and movement it goes back to more primitive algorithm which is comparing previous and current signal and if the signal is getting worse turn right if not go straight.
 			
 			</p>
 		</div>

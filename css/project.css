@@ -50,9 +50,6 @@ ul.tech {
 		max-width: 50px;
 		height: auto;
 	}
-	.github img:hover{
-		fill: red;
-	}
 	.github p{
 		color: black;
 		font-weight: bold;
