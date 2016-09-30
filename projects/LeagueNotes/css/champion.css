@@ -1,0 +1,139 @@
+@media(max-width: 914px){
+#changes_pie{
+	display: block;
+    margin: 0 auto;
+}
+#change_line{
+	display: block;
+    margin: 0 auto;
+}
+}
+@media(min-width: 915px){
+#changes_pie{
+	padding-top: 20px; 
+	margin-right: 42px;
+}
+}
+
+@media(max-width: 600px){
+			#change_line{
+				display: none;
+			}
+		
+		}
+
+.seasonBanner{
+	font-size: 16px;
+    text-align: center;
+    top: -35px;
+    left: -60px;
+    position: relative;
+    width: 113px;
+     margin: 0px;
+    padding: 0px;
+    color: white;
+	
+}
+
+.champion{
+	height: 120px;
+	background-position: 60% center;
+}
+.champion p{
+	color:white;
+	font-size: 40px;
+	display: inline-block;
+	padding-top: 74px;
+	padding-left: 4px;
+	/*line-height: 200px;*/
+	text-shadow: -1px -1px 0 #000,  
+				1px -1px 0 #000,
+				-1px 1px 0 #000,
+				 1px 1px 0 #000;
+
+}
+.triangle{
+	width: 50%;
+    height: 0;
+    padding-left:50%;
+    padding-top: 50px;
+    overflow: hidden;
+}
+.triangle:after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	clear: both;
+    margin-left:-500px;
+    margin-top:-380px;
+    
+    border-left: 500px solid transparent;
+    border-right: 500px solid transparent;
+    border-top:464px solid rgb(102, 153, 255);
+
+	
+}
+
+.seasonBanner:not(:first-of-type){
+	margin-top: 20px;
+}
+.patchlink{
+	/*float: left;
+	color: #626262;
+	font-size: 80%;
+	background-color: rgba(228, 228, 228, 0.84);
+	transition: all 1s ease-in-out;*/
+	 color: white;
+  font-size: 80%;
+  width: 28px;
+  position: relative;
+  background-color: rgba(102, 153, 255, 0.7);
+  transition: all 0.4s ease-in-out;
+  margin-bottom: 4px;
+}
+.patchlink:hover{
+	background-color: rgb(102, 153, 255);
+	
+
+}
+
+.allspells{
+	margin-bottom:0px;
+	display: flex;
+	display: -webkit-flex;
+	-webkit-box-orient: vertical;
+	flex: 1;
+	-webkit-flex: 1;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+}
+.patch_big{
+	/*float: left;
+	transform: rotate(270deg);
+	margin: 20px 2px 2px 2px;
+	background-color: white;*/
+position: absolute;
+  width: 15px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: 7px;
+  text-align: center;
+  display: inline-block;
+  transform: rotate(-90deg) translate(-100%, 0);
+  transform-origin: 0 0;
+  -webkit-transform: rotate(-90deg) translate(-100%, 0);
+  -webkit-transform-origin: 0 0;
+}
+
+.patch_table{
+	margin-top: 5px;
+	display: flex;
+	display: -webkit-flex;
+	-webkit-box-orient: vertical;
+	flex: 1;
+	-webkit-flex: 1;
+	
+}

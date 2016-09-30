@@ -1,0 +1,277 @@
+
+		.patches{
+			text-decoration: none;
+			font-size: 20px;
+			
+		}
+		.champion
+		{
+			background-position: 60% center;
+		}
+		
+		
+		.change_icon{
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			cursor: default;
+			
+			color: white;
+			vertical-align: middle;
+			text-align: center;
+			min-width: 70px;
+			height: 100%;
+			display: table-cell;
+		}
+		.BUFF{
+			background-color: #80DE57;
+		}
+		.NERF{
+			background-color: #DE5B54;
+		}
+		.CHANGE{
+			background-color: #D2A557;
+		}
+		.NEW{
+			background-color: #50B9EB;
+		}
+		.BUGFIX{
+			background-color: rgb(141, 141, 141);
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		#logo {
+			float: left;
+			width: 37px;
+			height: 37px;
+			
+			background-image: url("../assets/logo/logo.png");
+			background-size: contain;
+			transition: all 500ms ease; 
+		}
+		#logo:hover{
+			background-image: url("../assets/logo/logo_inverted.png");
+			background-size: contain;
+			
+		}
+		
+		h2{
+			color: #f1f1f1;
+		}
+		span{
+			font-weight: bold;
+			}
+		.note{
+			background-color: #ffffff; 
+			box-shadow: 1px 1px #cccccc;
+			margin-bottom: 5px;
+			}
+		#title{
+			background-color: grey;
+			text-align: center;
+			clear: both;
+			}
+		h1, h2, p, ul, li, a, body, div{
+			padding: 0;
+			margin: 0;
+			font-weight: lighter;
+			}
+		ul li a{
+			text-decoration: none;
+			}
+		.spell img{
+			max-width: 100%;
+			max-height: 100%;
+			}
+		.change_patch{
+			color: #000; /* Fallback for older browsers */
+			color: rgba(0, 0, 0, 0.5);
+			
+		}
+		.change_patch:hover{
+			color: rgba(0, 0, 0, 1);
+			transition: all 0.5s ease;
+			
+		}
+		
+		.spelliconwithtitle{
+			font-family: 'Vollkorn';
+			
+		
+		}
+		.patch{
+		font-size: 30px;
+	
+	font-family: 'Lato';
+	font-weight: lighter;
+		}
+		@media only screen
+		and (min-width: 640px)
+		{
+		
+		.patch{
+			float: left;
+			
+		}
+		
+		#logo{
+			margin-right: 5px;
+		}
+		#champion_text{
+			color:white;
+			/*line-height: 60px;*/
+			display: inline-block;
+			padding-top: 12px;
+			padding-left: 4px;
+			font-size: 23px;
+			text-shadow: -1px -1px 0 #000,  
+						1px -1px 0 #000,
+						-1px 1px 0 #000,
+						 1px 1px 0 #000;
+		}
+		ul li{
+			display: inline;
+			margin-right: 5px;
+			}
+		#header-menu{
+			padding-top: 10px;
+			float: right;
+			}
+		.spell{
+			
+			max-width: 100%;
+			background-color: #E7E7E7;
+			}
+		.spell img{
+			margin-right: 5px;
+			vertical-align: top;
+			width: 32px;
+			}
+		.spell span{
+			position: relative;
+			line-height: 200%;
+			}
+		.champion{
+			
+			height: 40px;
+			}
+		.allspells{
+			margin-bottom: 8px;
+		}
+			}
+			
+		@media(max-width: 639px){
+		#logo_patch a{
+			display: inline-block;
+			}
+		.patch{
+			display: inline-block;
+			vertical-align: top;
+		}
+		.change_patch{
+			width: 50%;
+		}
+		
+		#logo_patch{
+			text-align: center;
+			
+		}
+		#champion_text{
+			color:white;
+			font-size: 40px;
+			display: inline-block;
+			padding-top: 74px;
+			padding-left: 4px;
+			/*line-height: 200px;*/
+			text-shadow: -1px -1px 0 #000,  
+						1px -1px 0 #000,
+						-1px 1px 0 #000,
+						 1px 1px 0 #000;
+			
+		}
+		#example-one li a{
+			color: black;
+		}
+		#header-menu{
+			color: black;
+			padding-top: 10px;
+			}
+		ul li a{
+		
+				display: block;
+			
+			}
+	
+		ul li{
+			background-color: #E7E7E7;
+			border-style: solid;
+			border-color: orange;
+			border-width: 1px 1px 0px 1px;
+			list-style: none;
+			display: inline-block;
+			text-align: center;
+			line-height: 30px;
+			width: 31%;
+			height: 30px;
+			
+			}
+		ul li:first-child, ul li:nth-child(2){
+			margin-right: 2%;
+			}
+		ul li:first-child{
+			margin-left: 5px;
+		
+		}
+		
+		
+		.spell{
+			text-align: center;
+			max-width: 100%;
+			height: 35px;
+			background-color: #E7E7E7;
+			}
+		
+		.spell >:first-child{
+			float: left;
+			}
+		.spell >:nth-child(3){
+			float: right;
+			}
+		.spell span{
+			position: relative;
+			top: 25%;
+			}
+		.note{
+		
+		
+			clear: both;
+		}
+		.champion{
+			
+			height: 120px;
+			}
+		}
+		@media(max-width: 382px){
+			ul li:first-child {
+			   margin-left: 0px;
+			}
+			ul li:first-child, ul li:nth-child(2) {
+			   margin-right: 0%; 
+			}
+			ul li {
+	
+			   display: block;
+			   width:100%;
+			  
+			}
+			#header-menu {
+			   padding-top: 0px; 
+			}
+		}
+		
+		

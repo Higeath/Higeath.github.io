@@ -1,0 +1,87 @@
+body {
+	margin: 0 auto;
+	max-width: 1200px;
+	font-family: Helvetica,Arial;
+	background-color: #F7F7F7;
+}
+
+#wrapper {
+	z-index: 0;
+	margin: 0 4% 2%;
+	padding: 1rem;
+}
+header{
+	margin-bottom: 70px;
+}
+header h1 {
+	font-size: 4rem;
+	font-weight: 100;
+	margin-bottom: 1.5rem;
+}
+header p {
+	margin-bottom: 3rem;
+}
+a {
+	text-decoration: none;
+}
+p a{
+	color: black;
+	font-weight: bold;
+	border-bottom: 1px solid #268bd2;
+	transition: background-color 1s;
+}
+p a:hover{
+	border-bottom: 3px solid #268bd2;
+	background-color: #dfdfdf;
+}
+
+p{
+	max-width: 550px;
+	line-height: 1.8;
+	margin-bottom: 40px;
+}
+
+ul.tech {
+	display: inline;
+	list-style-type: none;
+	padding: 0;
+}
+
+ul.tech li {
+	display: inline;
+	background-color: #a9a9a9;
+	border: 2px solid #a9a9a9;
+	border-radius: 6px;
+	margin-right: 2px;
+	color: #fff;
+	padding: 0 1px;
+}
+.skills{
+	margin-top:50px;
+}
+
+.skills span{
+	margin-right: 10px; 
+	font-style: italic;
+	font-weight: bold;
+	color:#268bd2;
+}
+.strong{
+	background-color: #ff7700!important;
+	border: 2px solid #ff7700!important;
+}
+.medium{
+	background-color: #b35300!important;
+	border: 2px solid #b35300!important;
+}
+.weak{
+	background-color: #673000!important;
+	border: 2px solid #673000!important;
+}
+
+@media only screen and (max-width: 768px) {
+	header h1 {
+		font-size: 3rem;
+	}
+
+}

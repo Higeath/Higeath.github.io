@@ -19,9 +19,6 @@ header h1 {
 	margin-bottom: 1.5rem;
 }
 
-header p {
-	margin-bottom: 3rem;
-}
 a {
 	text-decoration: none;
 }
@@ -34,6 +31,9 @@ h3 {
 #links{
 	max-width: 550px;
 	text-align: justify;
+}
+#links p{
+	margin-bottom: 30px;
 }
 #links a{
 	font-size: 1.5rem;

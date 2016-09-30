@@ -1,0 +1,16 @@
+#cookiebar{
+	text-align: center;
+	background-color: #E7E7E7;
+	color: #50B9EB;
+}
+#enablecookies{
+	text-decoration: none;
+	list-style: none;
+	color: #80DE57;
+	
+}
+#enablecookies:hover{
+	transition: all 1s;
+	text-decoration: underline;
+	color: orange;
+}

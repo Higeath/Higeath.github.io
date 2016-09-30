@@ -1,0 +1,147 @@
+
+			#logo {
+			float: left;
+			width: 37px;
+			height: 37px;
+			
+			background-image: url("../assets/logo/logo.png");
+			background-size: contain;
+			transition: all 500ms ease; 
+		}
+		#logo:hover{
+			background-image: url("../assets/logo/logo_inverted.png");
+			background-size: contain;
+			
+		}
+		
+	.patch_link{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: white;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+     -webkit-transform: skew(30deg);
+    -moz-transform: skew(30deg);
+    -o-transform: skew(30deg);
+    transform: skew(30deg);
+    font-size: 100%;
+	line-height: 190%;
+	
+	}
+	.patch_link:hover{
+		color: rgb(80, 185, 235);
+	}
+	.patch_link_div{
+	display: inline-block;
+	 border: solid rgb(80, 185, 235) 1px;
+	position: relative;   
+    width: 5em;
+    height: 2em;
+    background: rgb(80, 185, 235);
+  
+    -webkit-transform: skew(-30deg);
+    -moz-transform: skew(-30deg);
+    -o-transform: skew(-30deg);
+    transform: skew(-30deg);
+   
+	margin-bottom: 5px;
+    transition: all 0.2s;
+	 
+	}
+	.patch_link_div:last-child{
+		margin-bottom: 15px;
+	}
+	
+
+	
+	
+.patch_link_div:hover{
+	     background-color: white;
+     
+	   border: solid rgb(80, 185, 235) 1px;
+	
+	 }
+h1, h2, p, ul, li, a, body, div{
+			padding: 0;
+			margin: 0;
+			font-weight: lighter;
+			text-decoration: none;
+			}
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+	display: inline;
+}
+	.patch{
+	font-size: 30px;
+	font-family: 'Lato';
+	font-weight: lighter;
+		}
+
+.season_shape{
+	margin-bottom: 15px;
+    border-bottom: 60px solid rgb(128, 222, 87);
+    border-right: 50px solid transparent;
+    height: 0;
+    width: 200px;
+   
+}
+.season{
+	line-height: 280%;
+	 text-align: center;
+    color: white;
+	font-weight: bold;
+	font-size: 125%;
+	
+}
+#logo_patch{
+	margin-bottom: 10px;
+}
+
+@media(min-width: 800px){
+.season_div{
+	width: 33%;
+	display: inline-block;
+	vertical-align: top;
+
+}
+}
+@media(max-width: 799px){
+.season_div{
+	width: 50%;
+	display: inline-block;
+	vertical-align: top;
+
+}
+}
+@media(max-width: 570px){
+.season_div{
+	width: 100%;
+	display: inline-block;
+	
+	
+
+}
+}
+@media(min-width: 640px){
+#logo {
+margin-right: 5px;
+}
+}
+@media(max-width: 639px){
+		#logo_patch a{
+			display: inline-block;
+			}
+			#logo_patch{
+			text-align: center;
+			
+		}
+		.patch{
+			display: inline-block;
+			vertical-align: top;
+		}
+			}
