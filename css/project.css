@@ -63,15 +63,22 @@ ul.tech {
 }
 
 .images{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 }
 
 	.images div{
 		height: 15rem;
 		width: auto;
 		overflow: hidden;
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
 		margin: 1rem;
 		box-shadow: 4px 4px 10px #aaa;
@@ -99,4 +106,3 @@ ul.tech {
 	}
 
 }
-

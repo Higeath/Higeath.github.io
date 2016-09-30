@@ -40,6 +40,7 @@ h3 {
 	color: black;
 	font-weight: bold;
 	border-bottom: 1px solid #268bd2;
+	-webkit-transition: background-color 1s;
 	transition: background-color 1s;
 }
 #links a:hover{
@@ -48,12 +49,13 @@ h3 {
 }
 .github a{
 	border-bottom: none!important;
+	-webkit-transition: all 0.2s!important;
 	transition: all 0.2s!important;
 }
 .github a:hover{
 	color:#4078c0!important;
 	border-bottom: none!important;
-	background-color: initial!important;
+	background-color: transparent!important;
 }	
 	
 .octicon-mark-github{

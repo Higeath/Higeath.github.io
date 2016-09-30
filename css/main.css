@@ -22,11 +22,16 @@ header p {
 }
 
 .flex {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 
 .flex:nth-of-type(even) {
-	flex-direction: row-reverse;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: reverse;
+	    -ms-flex-direction: row-reverse;
+	        flex-direction: row-reverse;
 }
 
 .side {
@@ -34,7 +39,9 @@ header p {
 }
 
 .verticalLine:before {
-	flex: 1;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
 	content: "";
 	border-left: 0.13em solid #B9D7D9;
 	border-right: 0.13em solid #B9D7D9;
@@ -43,10 +50,19 @@ header p {
 }
 
 .verticalLine {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;                     
-    flex-direction: column;
-    align-items: center;               
-    flex: 0 0 10%; 
+    -webkit-box-orient: vertical;                     
+    -webkit-box-direction: normal;                     
+        -ms-flex-direction: column;                     
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;               
+    -webkit-box-flex: 0;               
+        -ms-flex: 0 0 10%;               
+            flex: 0 0 10%; 
 	min-width:50px;
 }
 
@@ -73,6 +89,7 @@ h3:after {
 	height: 2.5px;
 	width: 0px;
 	background: transparent;
+	-webkit-transition: width .35s ease, background-color .35s ease;
 	transition: width .35s ease, background-color .35s ease;
 }
 a:hover h3:after {
@@ -111,7 +128,10 @@ ul.tech li {
 	}
 
 	.flex:nth-of-type(even) {
-		flex-direction: row;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
 	}
 
 	.side {

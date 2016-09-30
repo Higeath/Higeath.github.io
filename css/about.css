@@ -28,6 +28,7 @@ p a{
 	color: black;
 	font-weight: bold;
 	border-bottom: 1px solid #268bd2;
+	-webkit-transition: background-color 1s;
 	transition: background-color 1s;
 }
 p a:hover{
