@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="List of Kacper Turon's projects." name="description">
+	<link rel="shortcut icon" href="../../images/icon2.ico" />
+	<title>Kacper Turon | Stock Control Simulation</title>
+	<link href="../../css/navigation.css" rel="stylesheet">
+	<link href="../../css/project.css" rel="stylesheet">
+	<link href="css/StockControlSimulation.css" rel="stylesheet">
+	<link href="../../css/octicons/octicons.min.css" rel="stylesheet">
+	<link href="../../css/magnific-popup.css" rel="stylesheet">
+
+</head>
+<body>
+	
+	<div id="navigation">
+		<svg height="50" width="400">
+		  <polyline points="0,0 400,0 400,50 70,50 0,0"/>
+		</svg>
+		<ul>
+			<li><a href="../../index.html">Projects</a></li>
+			<li><a href="../../about.html">About</a></li>
+			<li><a href="../../contact.html">Contact</a></li>
+		</ul>
+	</div>
+
+	<div id="wrapper">
+		<header>
+			<h1>Stock Control Simulation</h1>
+			<ul class="tech">
+				<li>Java</li>
+				<li>Swing</li>
+				<li>Derby DB</li>
+				<li>SQL</li>
+			</ul>
+			
+			<div class="clr github">
+				<a href="https://github.com/Higeath/StockControlSimulation">
+					<p><span class="mega-octicon octicon-mark-github"></span>REPOSITORY</p>
+				</a>
+			</div>
+		</header>
+		<div class="images">
+			<div>
+				<img src="images/menu.png" href="images/menu.png" title="Main menu of the program with display of sold items.">
+			</div>
+			<div>
+				<img src="images/shop.png" href="images/shop.png" title="Shop catalogue.">
+			</div>
+			<div>
+				<img src="images/cart.png" href="images/cart.png" title="Shop cart.">
+			</div>
+			<div>
+				<img src="images/manager.png" href="images/manager.png" title="Stock management system for manager.">
+			</div>
+			<div>
+				<img src="images/addnewitem.png" href="images/addnewitem.png" title="Menu that allows menager to add new item to store catalogue.">
+			</div>
+		</div>
+		<div>
+			<h3>Program in a nutshell</h3>
+			<p>The program is a simulation of a small stock control system for a store. It allows customers to buy multiple items at once look up items by code and change order using cart. It also allows managers to login add stock also add new, edit and delete items with pictures. </p>
+		</div>
+		<div>
+			<h3>Main class of the program:</h3>
+			<div class="code">
+				<code>
+	public class Master extends JFrame implements ActionListener {
+		JButton check = new JButton("Check Stock");
+		JButton purchase = new JButton("Purchase Item");
+		JButton stock = new JButton("Update Stock");
+		JButton quit = new JButton("Exit");
+		static DecimalFormat pounds = new DecimalFormat("‎£###,##0.00");
+		static JLabel image;
+		//Map<String, StockData.Item> stock = StockData.getStock();
+		static JPanel items = new JPanel();
+		static JScrollPane bottom; 
+		public static boolean loggedIn = false;
+		public static void main(String[] args) {
+			Master master = new Master();
+		}
+		public Master() {
+			try{
+				copyImages();
+			}catch(Exception ex)
+			 {
+				System.out.println(ex);
+				}
+			/*Database connection*/
+			String DB_URL="jdbc:derby://localhost:1527/" +
+			new File("StoreDB").getAbsolutePath() + ";";
+			try{
+			NetworkServerControl server = new NetworkServerControl();
+			server.start(null);
+			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+			Connection conn = DriverManager.getConnection(DB_URL, "StoreAdmin","pass");
+			Statement stmt = conn.createStatement();
+			String sqlStatement = "SELECT StockID, Name, Quantity, Price, Filename FROM Stock";
+			ResultSet result = stmt.executeQuery(sqlStatement); 
+			while(result.next()){
+				 StockData.stock.put(result.getString("StockID"),
+						 new StockData.Item(result.getString("Name"),
+								 result.getDouble("Price"),
+								 result.getInt("Quantity"),
+								 result.getString("Filename")));
+			} 
+		   stmt.close();
+		   }catch(SQLException sqle){
+			   System.out.println(sqle);
+		   }catch(Exception e){
+			   System.out.println(e);
+		   }
+			/*Database connection*/
+			setLayout(new BorderLayout());
+			setSize(450, 180);
+			setTitle("Master");
+			// close application only by clicking the quit button
+			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+			JPanel top = new JPanel();
+			top.add(new JLabel("Select an option by clicking one of the buttons below"));
+			add("North", top);
+			JPanel middle = new JPanel();
+			middle.add(check);
+			check.addActionListener(this);
+			middle.add(purchase);
+			purchase.addActionListener(this);
+			middle.add(stock);
+			stock.addActionListener(this);
+			middle.add(quit);
+			quit.addActionListener(this);
+			add("Center", middle);
+			for(String key : StockData.getStock().keySet())  {
+				image = new JLabel(StockDropdown.setImageSize(StockData.getFilename(key),60));
+				image.setToolTipText(StockData.getName(key)+" "+pounds.format(StockData.getPrice(key)));
+				items.add(image);
+				items.repaint();
+				items.revalidate();
+			}
+			bottom= new JScrollPane(items);
+			bottom.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_NEVER);
+			bottom.setPreferredSize(new Dimension(20,85));
+			add("South", bottom);
+			setResizable(false);
+			setLocationRelativeTo(null);
+			setVisible(true);
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == check) {
+				CheckStock checkStock = new CheckStock();
+			} else if (e.getSource() == purchase){
+				PurchaseStock purchaseStock = new PurchaseStock();
+			} else if (e.getSource() == stock){
+				if(loggedIn){
+					UpdateStock updateStock = new UpdateStock();
+				}else{
+					Login login = new Login();
+				}
+			} else if (e.getSource() == quit) {
+				StockData.close();
+				System.exit(0);
+			}
+		}
+		public static void addImage(String key){
+			image = new JLabel(StockDropdown.setImageSize(StockData.getFilename(key),60));
+			image.setToolTipText(StockData.getName(key)+" "+pounds.format(StockData.getPrice(key)));
+			items.add(image);
+			items.repaint();
+			items.revalidate();
+		}
+		public static void deleteImage(){
+			items.removeAll();
+			for(String key : StockData.getStock().keySet())  {
+				image = new JLabel(StockDropdown.setImageSize(StockData.getFilename(key),60));
+				image.setToolTipText(StockData.getName(key)+" "+pounds.format(StockData.getPrice(key)));
+				items.add(image);
+				items.repaint();
+				items.revalidate();
+			}
+		}
+		public static void copyImages() throws URISyntaxException, IOException {
+			File imagesCopy = new File("images");
+			URI uri = Master.class.getResource("/images").toURI();
+			if (!uri.toString().startsWith("file:")) {
+				Map<String, String> env = new HashMap<>();
+				env.put("create", "true");
+				FileSystems.newFileSystem(uri, env);
+			}
+			Path imagesOrg = Paths.get(uri);
+			if (!imagesCopy.exists()) {
+				imagesCopy.mkdir();
+				try(DirectoryStream<Path> paths = Files.newDirectoryStream(imagesOrg)) {
+					for (final Path child : paths) {
+						try {
+							String targetPath = imagesCopy.getAbsolutePath() + File.separator + child.getFileName().toString();
+							Files.copy(child, Paths.get(targetPath), StandardCopyOption.REPLACE_EXISTING);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		}
+	}
+
+				</code>
+			</div>
+		</div>
+	</div>
+
+<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+<script src="../../js/jquery.min.js"></script>
+
+<!-- Magnific Popup core JS file -->
+<script src="../../js/jquery.magnific-popup.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('img').magnificPopup({type:'image'});
+});
+</script>
+</body>
+</html>
