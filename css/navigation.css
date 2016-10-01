@@ -1,8 +1,7 @@
 #navigation{
 	position:fixed;
-	max-width: 1200px;
-	width: 100%;
 	z-index: 0;
+	right: 0;
 }
 
 #navigation svg {
@@ -45,7 +44,12 @@
     color: #a9a9a9!important;
 }
 
-
+@media only screen and (min-width: 1200px) {
+	#navigation{
+		margin-left:800px!important;
+		right: initial;
+	}
+}
 @media only screen and (max-width: 768px) {
 	#navigation{
 		position: static;
